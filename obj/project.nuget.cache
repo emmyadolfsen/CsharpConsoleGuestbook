@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "67cCNH9y9gbiwUzAPTnRAZJ6xukg2PT+vgwMA5Pj2CfR05VvoUGQwc3lXSoGPAeeCYseW/MAEOtnOu7U5deUjQ==",
+  "success": true,
+  "projectFilePath": "/Users/raggmunk/Library/Mobile Documents/com~apple~CloudDocs/Plugg HT 2020/Csharp.NET/Guestbook/Guestbook.csproj",
+  "expectedPackageFiles": [
+    "/Users/raggmunk/.nuget/packages/newtonsoft.json/12.0.3/newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
