@@ -13,7 +13,7 @@ namespace Guestbook
 
     public void CreateNewPost()
         {
-            var serialize = new FileHandling();
+            var serialize = new FileHandling(); // instansiera klassen filehandling
             string Name = "";
             string Post = "";
 
@@ -24,15 +24,14 @@ namespace Guestbook
             }
 
             Clear();
-            do  // do-wile loop körs om input i namn eller post är tomt
+            do  // do-while loop körs om input i namn eller post är tomt
             {
-            WriteLine("(Namn och inlägg får inte vara tomt)");
+            WriteLine(" - Namn och inlägg får inte vara tomt - ");
             Write("Skriv in ditt namn: ");
-            Name = ReadLine();
+            Name = ReadLine();              // läs in input
             Write("Skriv ditt inlägg: ");
-            Post = ReadLine();
+            Post = ReadLine();              // läs in input
             }
-
             while(string.IsNullOrEmpty(Post) || string.IsNullOrEmpty(Name));
 
             serialize.DeSerialize(out string jsonData, out List<CreatePosts> postList); // kör funktionen deserialize

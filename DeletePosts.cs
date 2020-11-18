@@ -10,32 +10,32 @@ namespace Guestbook
         public void DeletePost()
         {
             
-            bool deleteCheck = true;
-            while (deleteCheck)
+            bool deleteCheck = true;    // sätt en bool till tru
+            while (deleteCheck)         // loopa så länge bool är true
             {
-            //bool showMenu = false;
-            var serialize = new FileHandling();
+            
+            var serialize = new FileHandling(); // instansiera klassen filehandling
             WriteLine();
             Write("Radera inlägg nummer: ");
 
-            string deleteInput = ReadLine();
+            string deleteInput = ReadLine();    // läs input
 
             try // prova om det är rätt input
             {
-            int deleteIndex = Convert.ToInt32(deleteInput) - 1; // gör om string till int
-            // kör funktionen deserialize
-            serialize.DeSerialize(out string jsonData, out List<CreatePosts> postList);
-            // Radera i listan där index = deleteIndex
-            postList.RemoveAt(deleteIndex);
-            // kör funktionen serialisera
-            serialize.Serialize(jsonData, postList);
+            int deleteIndex = Convert.ToInt32(deleteInput) - 1; // gör om string till int, ta bort ett
+            
+            serialize.DeSerialize(out string jsonData, out List<CreatePosts> postList); // kör funktionen deserialize
+            
+            postList.RemoveAt(deleteIndex); // Radera i listan där index = deleteIndex
+            
+            serialize.Serialize(jsonData, postList);    // kör funktionen serialisera
             Clear();
             deleteCheck = false;
             }
             catch (ArgumentOutOfRangeException) // om input är mer än vad som finns i listan
             {
                 Clear();
-                ForegroundColor = ConsoleColor.Red; 
+                ForegroundColor = ConsoleColor.Red; // ändra textfärg
                 WriteLine("- Numret finns inte i listan, försök igen. - \n");
                 ForegroundColor = ConsoleColor.Gray;
 
@@ -53,7 +53,7 @@ namespace Guestbook
              catch (FormatException) // om input inte är nummer
             {
                 Clear();
-                ForegroundColor = ConsoleColor.Red; 
+                ForegroundColor = ConsoleColor.Red; // ändra textfärg
                 WriteLine("- Du måste välja ett nummer, försök igen. - \n");
                 ForegroundColor = ConsoleColor.Gray;
 

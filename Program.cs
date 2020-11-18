@@ -1,5 +1,6 @@
 ﻿using System;
 using static System.Console;
+using static System.Threading.Thread;
 
 
 namespace Guestbook
@@ -18,13 +19,14 @@ namespace Guestbook
         
         private static bool MainMenu()
         {
-            var pageOne = new CreatePosts();   // Instansiera klassen createposts
-            var pageTwo = new DeletePosts();
-            var writeMenu = new WriteMenu();
+            var pageOne = new CreatePosts();    // Instansiera klassen createposts
+            var pageTwo = new DeletePosts();    // Instansiera klassen deleteposts
+            var writeMenu = new WriteMenu();    // Instansiera klassen writemenu
 
             writeMenu.WriteMenuAndLoop();   // kör funktionen writemenuandloop
             
-            switch (ReadLine())
+            // en switch för att läsa ut de olika input-valen i menyn
+            switch (ReadLine())             
             {
                 case "1":                   // vid input 1
                 pageOne.CreateNewPost();    // kör funktionen CreateNewPost
@@ -42,7 +44,7 @@ namespace Guestbook
 
                 default:                    // vid annan input
                 Clear();
-                ForegroundColor = ConsoleColor.Yellow;
+                ForegroundColor = ConsoleColor.Yellow;  // ändra textfärg
                 WriteLine("- Du måste välja något av alternativen. - \n");
                 ForegroundColor = ConsoleColor.Gray;
                 return true;                // gå tillbaks till loop
@@ -50,6 +52,7 @@ namespace Guestbook
             }
 
         }
+
 
     }
 }

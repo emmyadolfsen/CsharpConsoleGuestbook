@@ -21,11 +21,11 @@ namespace Guestbook
             {
                 serialize.DeSerialize(out string jsonData, out List<CreatePosts> postList); // kör funktionen deserialize
 
-                int indx = 1;                   // index börjar på ett för att det är snyggare
+                int indx = 1;                   // index börjar på ett för att det är snyggare och konventionellt
                 foreach (var post in postList)  // foreach-loop för att skriva ut alla poster
                 {                               
                 WriteLine($"[{indx}]{post.MyName} - {post.MyPost}");
-                indx ++;
+                indx ++;    // öka index med ett
                 } 
             }
         }
