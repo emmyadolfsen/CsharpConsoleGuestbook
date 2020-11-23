@@ -1,6 +1,6 @@
 using static System.Console;
 using System.Collections.Generic;
-using System.IO;
+
 
 namespace Guestbook
 {
@@ -8,7 +8,7 @@ namespace Guestbook
     {
         public string MyName { get; set; }  // för namn i inlägg
         public string MyPost { get; set; }  // för meddelande i inlägg
-        string jsonPath = @"posts.json";    // Sökväg för json-fil
+        
         
 
     public void CreateNewPost()
@@ -17,11 +17,7 @@ namespace Guestbook
             string Name = "";
             string Post = "";
 
-            // om filen inte finns - skapa ny fil med filestream
-            if (!File.Exists(jsonPath))
-            {
-                FileStream fs = File.Create(jsonPath);
-            }
+
 
             Clear();
             do  // do-while loop körs om input i namn eller post är tomt

@@ -1,6 +1,6 @@
 ﻿using System;
 using static System.Console;
-using static System.Threading.Thread;
+using System.IO;
 
 
 namespace Guestbook
@@ -22,8 +22,15 @@ namespace Guestbook
             var pageOne = new CreatePosts();    // Instansiera klassen createposts
             var pageTwo = new DeletePosts();    // Instansiera klassen deleteposts
             var writeMenu = new WriteMenu();    // Instansiera klassen writemenu
+            string jsonPath = @"posts.json";    // Sökväg för json-fil
 
             writeMenu.WriteMenuAndLoop();   // kör funktionen writemenuandloop
+
+            // om filen inte finns - skapa ny fil med filestream
+            if (!File.Exists(jsonPath))
+            {
+                FileStream fs = File.Create(jsonPath);
+            }
             
             // en switch för att läsa ut de olika input-valen i menyn
             switch (ReadLine())             

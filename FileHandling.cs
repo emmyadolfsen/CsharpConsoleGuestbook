@@ -1,5 +1,5 @@
-using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Collections.Generic; // för listhantering
+using Newtonsoft.Json; // Newtonsoft för serialisering
 
 namespace Guestbook
 {
